@@ -13,7 +13,7 @@ $environment = Environment::DEVELOPMENT; // DEVELOPMENT atau PRODUCTION.
 $apiKey = 'api key anda';
 $privateKey = 'private key anda';
 
-$channelCode = 'merchant code'; // BRIVA, BNIVA etc.
+$channelCode = 'channel code'; // BRIVA, BNIVA etc.
 $merchantCode = 'merchant code'; // T0005, T0006 etc.
 
 $merchant = new Merchant($environment)
