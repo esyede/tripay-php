@@ -160,8 +160,6 @@ class Transaction extends Base
                     $this->privateKey
                 );
 
-                // print_r($this->items); die;
-
                 $payloads = [
                     'method' => $this->channelCode,
                     'merchant_ref' => $this->merchantRef,
@@ -174,8 +172,6 @@ class Transaction extends Base
                     'expired_time' => $this->expiresAfter,
                     'signature' => $signature,
                 ];
-
-                // print_r($payloads); die;
 
                 return $this->request('post', 'transaction/create', $payloads);
 

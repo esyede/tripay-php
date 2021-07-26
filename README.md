@@ -11,14 +11,14 @@ use Tripay\Merchant;
 $environment = Environment::DEVELOPMENT; // DEVELOPMENT atau PRODUCTION.
 
 $apiKey = 'api key anda';
-$apiKey = 'private key anda';
+$privateKey = 'private key anda';
 
 $channelCode = 'merchant code'; // BRIVA, BNIVA etc.
 $merchantCode = 'merchant code'; // T0005, T0006 etc.
 
 $merchant = new Merchant($environment)
     ->apiKey($apiKey)
-    ->privateKey($apiKey)
+    ->privateKey($privateKey)
     ->channelCode($channelCode)
     ->merchantCode($merchantCode);
 ```
@@ -94,7 +94,7 @@ $returnUrl = 'https://situsku.com/payment/success/thanks';
 
 $transaction = new Transaction($environment)
     ->apiKey($apiKey)
-    ->privateKey($apiKey)
+    ->privateKey($privateKey)
     ->channelCode($channelCode)
     ->merchantCode($merchantCode)
     ->returnUrl($returnUrl);
