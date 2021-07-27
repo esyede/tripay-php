@@ -25,7 +25,7 @@ class Curl extends Base
      *
      * @return \stdClass
      */
-    protected function request($method, $url, array $params = [], array $options = [])
+    public function request($method, $url, array $params = [], array $options = [])
     {
         $curl = curl_init();
 

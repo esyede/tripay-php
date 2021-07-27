@@ -145,9 +145,9 @@ $uuid = 'T4160-OP1617-TJNCU4'; // Diperoleh dari hasil $transaction->process();
 
 $transaction->forOpenPayment(); // Untuk open payment
 
-$details = $transaction->details($uuid);
+$detail = $transaction->detail($uuid);
 
-print_r($details);
+print_r($detail);
 ```
 
 
@@ -210,7 +210,7 @@ Excepteur sint occaecat cupidatat non  deserunt mollit anim id est laborum.
 ```php
 $reference = 'T0001000000000000006'; // Diperoleh dari hasil $transaction->process();
 
-$details = $transaction->details($reference);
+$detail = $transaction->detail($reference);
 
-print_r($details);
+print_r($detail);
 ```

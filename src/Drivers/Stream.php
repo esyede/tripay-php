@@ -25,7 +25,7 @@ class Stream extends Base
      *
      * @return \stdClass
      */
-    protected function request($method, $url, array $params = [], array $options = [])
+    public function request($method, $url, array $params = [], array $options = [])
     {
         // TODO: implementasikan koneksi via stream socket.
     }

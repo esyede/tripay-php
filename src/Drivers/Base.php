@@ -4,6 +4,11 @@ namespace Tripay\Drivers;
 
 abstract class Base
 {
+    public function __construct()
+    {
+        // ..
+    }
+
     /**
      * Kirim request.
      *
@@ -14,7 +19,7 @@ abstract class Base
      *
      * @return \stdClass
      */
-    abstract protected function request($method, $url, array $params = [], array $options = []);
+    abstract public function request($method, $url, array $params = [], array $options = []);
 
     /**
      * Buat user-agent palsu.

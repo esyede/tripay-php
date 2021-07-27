@@ -74,18 +74,44 @@ class Transaction extends Base
     }
 
     /**
-     * Set customer.
+     * Set nama customer.
      *
      * @param string $name
+     *
+     * @return Transaction
+     */
+    public function customerName($name)
+    {
+        $this->customerName = (string) $name;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Set email customer.
+     *
      * @param string $email
+     *
+     * @return Transaction
+     */
+    public function customerEmail($email)
+    {
+        $this->customerEmail = (string) $email;
+
+        return $this;
+    }
+
+    /**
+     * Set nomor telepon customer.
+     *
      * @param string $phone
      *
      * @return Transaction
      */
-    public function customer($name, $email, $phone)
+    public function customerPhone($phone)
     {
-        $this->customerName = (string) $name;
-        $this->customerEmail = (string) $email;
         $this->customerPhone = (string) $phone;
 
         return $this;
@@ -138,6 +164,8 @@ class Transaction extends Base
                     $this->privateKey
                 );
 
+                // var_dump($this->merchantCode, $this->channelCode, $this->merchantRef, $this->privateKey); die;
+
                 $payloads = [
                     'method' => $this->channelCode,
                     'merchant_ref' => $this->merchantRef,
@@ -184,7 +212,7 @@ class Transaction extends Base
     }
 
 
-    public function details($uuid)
+    public function detail($uuid)
     {
         if (! is_string($uuid) || strlen(trim($uuid)) <= 0) {
             throw new InvalidTransactionUuidException('Transaction UUID should be a non empty string.');
