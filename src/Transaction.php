@@ -164,8 +164,6 @@ class Transaction extends Base
                     $this->privateKey
                 );
 
-                // var_dump($this->merchantCode, $this->channelCode, $this->merchantRef, $this->privateKey); die;
-
                 $payloads = [
                     'method' => $this->channelCode,
                     'merchant_ref' => $this->merchantRef,
@@ -215,7 +213,7 @@ class Transaction extends Base
     public function detail($uuid)
     {
         if (! is_string($uuid) || strlen(trim($uuid)) <= 0) {
-            throw new InvalidTransactionUuidException('Transaction UUID should be a non empty string.');
+            throw new Exceptions\InvalidTransactionUuidException('Transaction UUID should be a non empty string.');
         }
 
         switch ($this->transactionType) {
@@ -227,7 +225,7 @@ class Transaction extends Base
                 $payloads = ['reference' => $uuid]; // TODO: apakah reference sama dengan uuid?
                 return $this->request('get', 'transaction/detail', $payloads);
 
-            default: throw new InvalidTransactionTypeException(sprintf(
+            default: throw new Exceptions\InvalidTransactionTypeException(sprintf(
                 'Only OPEN and CLOSED transaction types are supported, got: %s',
                 $this->transactionType
             ));
@@ -239,7 +237,7 @@ class Transaction extends Base
     public function payments($uuid)
     {
         if (! is_string($uuid) || strlen(trim($uuid)) <= 0) {
-            throw new InvalidTransactionUuidException('Transaction UUID should be a non-empty string.');
+            throw new Exceptions\InvalidTransactionUuidException('Transaction UUID should be a non-empty string.');
         }
 
         $payloads = [];
