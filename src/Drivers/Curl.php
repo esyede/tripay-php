@@ -33,6 +33,7 @@ class Curl extends Base
         curl_setopt($curl, CURLOPT_AUTOREFERER, 1);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_USERAGENT, $this->agent());
+        curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
 
         $query = empty($params) ? null : http_build_query($params, '', '&', PHP_QUERY_RFC1738);
 
